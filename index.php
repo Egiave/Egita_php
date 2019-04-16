@@ -2,10 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>PHP lydės <?php print date('D', (strtotime('+1day'))) ; ?></title>
+        <title>Komentarai</title>
     </head>
     <body>
-        <h1>Egita - PHM su manimi buvo ir <?php print date('H', (strtotime('-hour'))) . ' valanda! '; ?></h1>
-        <p><?php print date(' Y ', (strtotime('+1year'))); ?>už kalnų!</p>  
+        <?php 
+        //<h1>Dainų tekstai</h1>
+        ?>
+        <h2> Paragrafo Daina</h2>
+        <p>Aš toks vienišas jaunas paragrafas...</p>
+        <!--        
+        <p>Mindau svetimo kodo gatves</p> 
+        -->
     </body>
 </html>
