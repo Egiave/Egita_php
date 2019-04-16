@@ -2,12 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title><?php print 'Aš,' . date('W') . 'ir PHP' ; ?></title>
+        <title>PHP lydės <?php print date('D', (strtotime('+1day'))) ; ?></title>
     </head>
     <body>
-        <h1>Egita - HTML <?php print 'ir PHP'; ?> asė! jau nuo <?php print date('Y') . ' metų ' ; ?></h1>
-        <p>Viskas prasidėjo 
-        <?php print date('M') . ' mėnesio, ' . date('d') . ' dieną! '; ?>  
-        </p>  
+        <h1>Egita - PHM su manimi buvo ir <?php print date('H', (strtotime('-hour'))) . ' valanda! '; ?></h1>
+        <p><?php print date(' Y ', (strtotime('+1year'))); ?>už kalnų!</p>  
     </body>
 </html>
