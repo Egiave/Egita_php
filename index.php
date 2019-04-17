@@ -10,6 +10,5 @@
  print "Boolean: $boolean <br>";
  $nothing = null;
  print "Nothing: $nothing <br>";
-
  ?>
 
