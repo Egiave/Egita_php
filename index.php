@@ -1,5 +1,4 @@
  <?php 
-// STRING
  $string = 'Hello'; 
   print "String: $string <br>";
  $integer = 0;
