@@ -10,7 +10,7 @@
  $image2 = 'https://amp.thisisinsider.com/images/5b61765ebda1c72b008b4567-750-562.jpg';
  $image3 = 'https://static.dezeen.com/uploads/2016/08/zhangjiajie-grand-canyon-glass-bridge-haim-dotan_dezeen_2364_ss_1-852x609.jpg';
  
- $neuru = rand(1, 100); 
+ $euru = rand(1, 100); 
  $suvienu = rand(101, 200);
  $sudviem = rand(201, 300);
  
@@ -40,7 +40,7 @@
         
         <div>
             <h1>Skolos skaiciuokle</h1>
-            <h3>Jei paėmei <?php print $neuru; ?>jievru</h3>
+            <h3>Jei paėmei <?php print $euru; ?>jievru</h3>
             <h3>Su dviem kabančiais grąžinsi <?php print $sudviem; ?></h3>
             <h3>Su vienu kabančiu grąžinsi <?php print $suvienu; ?></h3>
         </div>
