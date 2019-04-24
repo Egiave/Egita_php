@@ -1,18 +1,23 @@
 <?php
-    
-$grikiai_start = 5000;
-$praejo_dienu = 0;
-$per_diena = rand(200, 500);
- 
-for ($grikiai = $grikiai_start; $grikiai > 0;  $grikiai -= rand(200, 500)) {
-    $praejo_dienu++;
-    print "suvalgysiu $per_diena ir liks $grikiai grikiu <br>";
+
+$x = 10;
+
+for ($z = 1; $z <= $x; $z++) {
+    print "Aš esu $z-tasis ciklas <br>"; 
 }
 
-$date = date('Y-m-d', strtotime("+$praejo_dienu days"));
-$text = "Jei turėsiu $grikiai_start g. grikių, valgysiu juos $praejo_dienu dienų."
-        . " Jei pradėsiu šiandien, grikiai baigsis $date datą."
-        
+$months = 24;
+$car_price_new = 30000;
+$car_price_used = $car_price_new;
+
+for ($m = 1; $m <=24; $m++) {
+    $car_price_used -= round($car_price_used * 0.02);
+    print "$m Mašinos vertė $car_price_used <br>";
+}
+
+$depreciated = round(100 - ($car_price_used / $car_price_new) * 100);
+$text = "Po 24 menesiu masinos verte bus: $car_price_used ir nuvertejo $depreciated procentu."
+
 ?>
 <!DOCTYPE html>
 <html>
