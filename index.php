@@ -1,25 +1,23 @@
 <?php
-
-$kates = rand (1, 3);
-$sunys = rand (1, 3);
-$katasuniai = 0;
-
-for ($k =1; $k <= $kates; $k++) {
-    for ($s = 1; $s <= $sunys; $s++) {
-        $success = rand (0, 1); 
     
-        if ($success = 1) {
-            $katasuniai++;  
-            break;
-    }
-  }
+$grikiai_start = 5000;
+$per_diena = rand(200, 500);
+$praejo_dienu = 0;
+$grikiai = $grikiai_start; 
+ 
+
+for (; $grikiai > 0;) {
+    $per_diena = rand (200, 500);
+    $praejo_dienu += 1; 
+    $grikiai -= $per_diena;
+    print "suvalgysiu $per_diena ir liks $grikiai grikiu <br>";
 }
 
-$text = "Event'e dalyvavo $kates katės ir $sunys šunys.<br>"
-        . "Katašunių išeiga: $katasuniai";
-
+$date = date('Y-m-d', strtotime("+$praejo_dienu days"));
+$text = "Jei turėsiu $grikiai_start g. grikių, valgysiu juos $praejo_dienu dienų."
+        . " Jei pradėsiu šiandien, grikiai baigsis $date datą."
+        
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
