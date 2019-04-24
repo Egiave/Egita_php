@@ -1,15 +1,11 @@
 <?php
     
 $grikiai_start = 5000;
-$per_diena = rand(200, 500);
 $praejo_dienu = 0;
-$grikiai = $grikiai_start; 
+$per_diena = rand(200, 500);
  
-
-for (; $grikiai > 0;) {
-    $per_diena = rand (200, 500);
-    $praejo_dienu += 1; 
-    $grikiai -= $per_diena;
+for ($grikiai = $grikiai_start; $grikiai > 0;  $grikiai -= rand(200, 500)) {
+    $praejo_dienu++;
     print "suvalgysiu $per_diena ir liks $grikiai grikiu <br>";
 }
 
