@@ -29,19 +29,19 @@ $arr = [
 var_dump($arr);
 
 $all = [
-        'Petro Pizdžio' => [
-        'name' => 'Petro pizdžio',
-        'veiksmas' => 'prap*stas',
+    'Petro_Pizdžio' => [
+        'vardas' => 'Petro pizdžio',
+        'daikto_bukle' => 'prap*stas',
         'daiktas' => 'telefonas',
     ],
-        'Tomo Ablomo' => [
-        'name' => 'Tomo Ablomo',
-        'veiksmas' => 'naudojamas',
+    'tomo_ablomo' => [
+        'vardas' => 'Tomo Ablomo',
+        'daikto_bukle' => 'naudojamas',
         'daiktas' => 'buljonas',
     ],
-        'Anos Shitkovos' => [
-        'name' => 'Anos Shitkovos',
-        'veiksmas' => 'pasibaigęs',
+    'anos_shitkovos' => [
+        'vardas' => 'Anos Shitkovos',
+        'daikto_bukle' => 'pasibaigęs',
         'daiktas' => 'rulonas',
     ]
 ];
