@@ -25,15 +25,14 @@ $rand_flashback = rand(0, count($mano_atmintis) - 1);
         <h1>Kas buvo penktadienį?!</h1>
         <h2>Mano atmintis</h2>
             <ul> <!-- foreach -->
-                    <?php foreach($mano_atmintis as $value): ?>
-                    <li> 
-                            <?php print $value; ?>
-                             
-                    </li>
-                    <?php endforeach; ?>
+                <?php foreach($mano_atmintis as $value): ?>
+                <li> 
+                   <?php print $value; ?>
+                </li>
+                <?php endforeach; ?>
             </ul><!-- endforeach -->
                 <?php 
-//                print $mano_atmintis["$rand_flashback"];
+//              print $mano_atmintis["$rand_flashback"];
                 print '#' . $rand_flashback . ': ' . $mano_atmintis[$rand_flashback];
                 ?>
     </body>    
