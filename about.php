@@ -1,55 +1,20 @@
 <?php
 
-$vaisiai = [
-    'obuolys', 
-    'apelsinas', 
-    'cukinija'
-];
+$mano_atmintis = [
+	    'Penktadienis',
+	    'Paskaita',
+	    'Baras',
+	    'Viskis',
+	    'Alus',
+	    'Degtine',
+	    'Alus',
+	    'Pirmadienis',
+	    'Paskaita'
+	];
 
-var_dump ($vaisiai);
-
-$arr = [
-    'kiausiniai' => [
-        'name' => 'Kiaušinis',
-        'amount' => 1,
-        'size' => 'didelis',
-    ],
-    'baklazanai' => [
-        'name' => 'Baklažanas',
-        'amount' => 1,
-        'size' => 'mazas',
-    ],
-    'grietine' => [
-        'name' => 'Grietinė',
-        'amount' => 1,
-        'size' => 'mazas',
-    ]
-];
-
-var_dump($arr);
-
-$all = [
-    'Petro_Pizdžio' => [
-        'vardas' => 'Petro pizdžio',
-        'daikto_bukle' => 'prap*stas',
-        'daiktas' => 'telefonas',
-    ],
-    'tomo_ablomo' => [
-        'vardas' => 'Tomo Ablomo',
-        'daikto_bukle' => 'naudojamas',
-        'daiktas' => 'buljonas',
-    ],
-    'anos_shitkovos' => [
-        'vardas' => 'Anos Shitkovos',
-        'daikto_bukle' => 'pasibaigęs',
-        'daiktas' => 'rulonas',
-    ]
-];
-
-var_dump($all);
+$rand_flashback = rand(0, count($mano_atmintis) - 1);
 
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,16 +22,19 @@ var_dump($all);
         <title>Array</title>
     </head>
     <body>
-         <div class="produktas">
-            <span class="pavadinimas">
-                <?php print $arr['grietine']['name']; ?>
-            </span>
-            <span class="kiekis">
-                <?php print $arr['grietine']['amount']; ?>   
-            </span>
-            <span class="dydis">
-                <?php print $arr['grietine']['size']; ?>
-            </span>
-        </div>
-    </body>
+        <h1>Kas buvo penktadienį?!</h1>
+        <h2>Mano atmintis</h2>
+            <ul> <!-- foreach -->
+                    <?php foreach($mano_atmintis as $value): ?>
+                    <li> 
+                            <?php print $value; ?>
+                             
+                    </li>
+                    <?php endforeach; ?>
+            </ul><!-- endforeach -->
+                <?php 
+//                print $mano_atmintis["$rand_flashback"];
+                print '#' . $rand_flashback . ': ' . $mano_atmintis[$rand_flashback];
+                ?>
+    </body>    
 </html>    
