@@ -58,6 +58,7 @@ foreach ($zodziai as $zodis) {
         $atrinkti_zodziai[] = $zodis;
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html>
