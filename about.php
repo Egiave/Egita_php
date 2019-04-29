@@ -1,4 +1,5 @@
 <?php
+
 $ataskaita = [
     [
         'name' => 'IKI Darbo Užmokestis',
