@@ -6,41 +6,41 @@ $mano_atmintis = [
     'Baras',
     'Viskis',
     'Alus',
-    'Degtine',
     'Alus',
-    'Cigarete',
+    'Alus',
     'Pirmadienis',
     'Paskaita'
 ];
 
 $draugo_atmintis = [
     'Penktadienis',
-    'Paskaita',
+    'Rytas',
     'Baras',
     'Viskis',
+    'Degtine',
+    'Degtine',
     'Alus',
     'Degtine',
-    'Ezeras',
-    'pusys',
-    'Pirmadienis',
-    'Paskaita'
-];​
+    'Samagonas',
+    'Antradienis'
+];
 
+$flashback_index = rand(0, count($mano_atmintis) - 1);
+$flashback_num = $flashback_index + 1;
+$flashback_text = "#$flashback_num: {$mano_atmintis[$flashback_index]}";
 
-
-$rand_flashback = rand(0, count($mano_atmintis) - 1);
-$flashback_text = '#' . $rand_flashback . ': ' . $mano_atmintis[$rand_flashback];
-​
 $bendri_atsiminimai = [];
-
-foreach ($mano_atmintis as $prisiminimas) {      
+foreach ($mano_atmintis as $prisiminimas) {
     $egzistuoja = in_array($prisiminimas, $draugo_atmintis);
-    if ($egzistuoja) {
-       $bendri_atsiminimai[] = $prisiminimas;
-    } 
-    print $prisiminas;
+    $duplikuojasi = in_array($prisiminimas, $bendri_atsiminimai);
+
+    if ($egzistuoja && !$duplikuojasi) {
+        $bendri_atsiminimai[] = $prisiminimas;
+    }
 }
 
+$array = [20,30,69];
+print $array[0] + $array[1] +  $array[2];
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,32 +54,33 @@ foreach ($mano_atmintis as $prisiminimas) {
         <h2>Mano atmintis</h2>
         <ul> 
             <!-- foreach -->
-            <?php foreach ($mano_atmintis as $value): ?>
-                <li>
-                    <?php print $value; ?>
-                </li>
-            <?php endforeach; ?>
-            <!-- endforeach -->        
-        </ul>
-
-        <!-- Flashback is random each page refresh -->   
-        <p><?php print $flashback_text; ?></p>
-        <h2>Draugo atmintis</h2>
-        <ul>
-            <!-- foreach -->
-            <?php foreach ($draugo_atmintis as $value): ?>
-                <li>
-                    <?php print $value; ?>
+            <?php foreach ($mano_atmintis as $prisiminimas): ?>
+                <li> 
+                    <?php print $prisiminimas; ?>
                 </li>
             <?php endforeach; ?>
             <!-- endforeach -->
         </ul>
-        <ul>
-            <?php foreach($bendri_atisiminimai as $prisiminimas): ?>
-                <li>
-                    <?php print $value; ?>
+        <h3><?php print $flashback_text; ?></h3>               
+        <h2>Draugo Atmintis</h2>
+        <ul> 
+            <!-- foreach -->
+            <?php foreach ($draugo_atmintis as $prisiminimas): ?>
+                <li> 
+                    <?php print $prisiminimas; ?>
                 </li>
             <?php endforeach; ?>
+            <!-- endforeach -->
+        </ul>
+        <h3>Sutape prisiminimai:</h3>
+        <ul> 
+            <!-- foreach -->
+            <?php foreach ($bendri_atsiminimai as $prisiminimas): ?>
+                <li>
+                    <?php print $prisiminimas; ?>
+                </li>
+            <?php endforeach; ?> 
+            <!-- endforeach -->
         </ul>
     </body>
 </html>
