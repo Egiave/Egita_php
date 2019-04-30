@@ -3,20 +3,20 @@
 $ataskaita = [
     [
         'name' => 'IKI Darbo Užmokestis',
-        'amount' => 600,
+        'amount' => '600',
     ],
     [
         'name' => 'Kavarijų Načnykas',
-        'amount' => -15,
+        'amount' => '-15',
     ],
     [
         'name' => 'Rimi',
-        'amount' => -10,
+        'amount' => '-10',
     ],
     [
         'name' => 'Komisas',
-        'amount' => 300,
-//        'css_class' => 'positive/negative'
+        'amount' => '300',
+//      'css_class' => 'positive/negative'
     ]
 ];
 
@@ -39,9 +39,9 @@ foreach ($ataskaita as $index => $irasas) {
     $balansas += $irasas['amount'];
 }
 
-$text = "Visos išlaidos: $visos_islaidos eur.";
-$text1 = "Visos įplaukos: $visos_iplaukos eur.";
-$text2 = "Balansas: $balansas eur.";
+$text_balance = "balansas: $balansas eur.";
+$text_spend = "visos islaidos: $visos_islaidos eur.";
+$text_earn = "visos iplaukos: $visos_iplaukos eur.";
 
 $zodziai = [
     'Petras',
@@ -59,6 +59,25 @@ foreach ($zodziai as $zodis) {
         $atrinkti_zodziai[] = $zodis;
     }
 }
+
+$zodziai = [
+    'Petras',
+    'laukė',
+    'ryte',
+    'prie',
+    'Maxima'
+];
+
+$rasinys = [];
+$rasinio_ilgis = rand(100, 300);
+
+for ($rasinio_zodis = 0; $rasinio_zodis < $rasinio_ilgis; $rasinio_zodis++) {
+    $random_index = rand(0, count($zodziai) -1);
+    $random_zodis = $zodziai[$random_index];
+    $rasinys[] = $random_zodis;
+}
+
+var_dump($rasinys);
 
 ?>
 <!DOCTYPE html>
@@ -87,13 +106,13 @@ foreach ($zodziai as $zodis) {
         </ul>
         <ul>
             <li>
-                <?php print $text; ?>
+                <?php print $text_balance; ?>
             </li>
             <li>
-                <?php print $text1; ?>
+                <?php print $text_spend; ?>
             </li>
             <li>
-                <?php print $text2; ?>
+                <?php print $text_earn; ?>
             </li>
         </ul> 
         <ul>
