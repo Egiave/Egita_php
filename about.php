@@ -1,83 +1,27 @@
 <?php
 
-$ataskaita = [
-    [
-        'name' => 'IKI Darbo Užmokestis',
-        'amount' => '600',
+$dishes = [
+    'nut_salad' => [
+        'name' => 'Nut_Salad',
+        'price' => 3.44,
+        'ingredients' => [
+            'Nuts',
+            'Joghurt'
+        ]
     ],
-    [
-        'name' => 'Kavarijų Načnykas',
-        'amount' => '-15',
-    ],
-    [
-        'name' => 'Rimi',
-        'amount' => '-10',
-    ],
-    [
-        'name' => 'Komisas',
-        'amount' => '300',
-//      'css_class' => 'positive/negative'
+    'bulldish' => [
+        'name' => 'Bulldish',
+        'price' => 4.77,
+        'ingredients' => [
+            'Rice',
+            'Soja Sauce'
+        ]
     ]
 ];
 
-//print $ataskaita [0]['amount'];
-//$ataskaita[0]['amount'] = 10;
-
-$visos_islaidos = 0;
-$visos_iplaukos = 0;
-$balansas = 0;
-
-foreach ($ataskaita as $index => $irasas) {
-    if ($irasas['amount'] > 0) {
-        $visos_iplaukos += $irasas['amount'];
-        $ataskaita[$index]['css_class'] = 'positive';
-    } else {
-        $visos_islaidos -= $irasas['amount'];
-        $ataskaita[$index]['css_class'] = 'negative';
-    }
-
-    $balansas += $irasas['amount'];
-}
-
-$text_balance = "balansas: $balansas eur.";
-$text_spend = "visos islaidos: $visos_islaidos eur.";
-$text_earn = "visos iplaukos: $visos_iplaukos eur.";
-
-$zodziai = [
-    'Petras',
-    'laukė',
-    'ryte',
-    'prie',
-    'Maxima'
-];
-
-$atrinkti_zodziai = [];
-
-foreach ($zodziai as $zodis) {
-    $pateko = rand(0, 1);
-    if ($pateko) {
-        $atrinkti_zodziai[] = $zodis;
-    }
-}
-
-$zodziai = [
-    'Petras',
-    'laukė',
-    'ryte',
-    'prie',
-    'Maxima'
-];
-
-$rasinys = [];
-$rasinio_ilgis = rand(100, 300);
-
-for ($rasinio_zodis = 0; $rasinio_zodis < $rasinio_ilgis; $rasinio_zodis++) {
-    $random_index = rand(0, count($zodziai) -1);
-    $random_zodis = $zodziai[$random_index];
-    $rasinys[] = $random_zodis;
-}
-
-var_dump($rasinys);
+//print $dishes['nut_salad']['img'] . '<br>';
+//print $dishes['bulldish']['img'];
+//    ($index == 'bulldish');
 
 ?>
 <!DOCTYPE html>
@@ -86,41 +30,54 @@ var_dump($rasinys);
         <title>Klases darbas, pirmadienis</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <style type="text/css">
-            .positive {
-                color: green;
+        <style>
+            .image1 {
+                background-image: url("https://img.taste.com.au/EU9D0DbT/w720-h480-cfill-q80/taste/2016/11/ripper-thai-beef-noodle-salad-62642-1.jpeg");
+                background-size: cover;
+                height: 50vh;
+                width: 50vh;
+                border: 3px solid black;
             }
-            .negative {
-                color: red;
+            .image2 {
+                background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR54uqemQdRQK76vYKxQkee7jDFrTo9850qO4l7zT4knphQ2SD5");
+                background-size: cover;
+                height: 50vh;
+                width: 50vh;
+                border: 3px solid black;
             }
         </style>
     </head>
     <body>
         <ul>
-            <?php foreach ($ataskaita as $irasas): ?>
-                <li class="<?php print $irasas['css_class']; ?>">
-                    <span><?php print $irasas['name']; ?></span>
-                    <span><?php print $irasas['amount']; ?></span>
+            <?php foreach ($dishes as $dishes_index => $dish): ?>
+
+                <?php if ($dishes_index == 'nut_salad'): ?>
+                    <?php $dish['css_class'] = 'image1'; ?>
+                <?php else: ?>
+                    <?php $dish['css_class'] = 'image2'; ?>
+                <?php endif ?>
+                <li class="<?php print $dish['css_class']; ?>">
+                    <?php print $dishes_index; ?>
+                    <ul>
+                        <?php foreach ($dish as $dish_index => $parameters): ?>
+                            <li>
+                                <?php print $dish_index; ?>
+                                <?php if (is_array($parameters)): ?>
+                                    <ul>
+                                        <?php foreach ($parameters as $ingri): ?>
+                                            <li>
+                                                <?php print $ingri; ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php else: ?>
+                                    <?php print $parameters . '<br>'; ?>
+                                <?php endif; ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
                 </li>
-            <?php endforeach; ?>    
-        </ul>
-        <ul>
-            <li>
-                <?php print $text_balance; ?>
-            </li>
-            <li>
-                <?php print $text_spend; ?>
-            </li>
-            <li>
-                <?php print $text_earn; ?>
-            </li>
-        </ul> 
-        <ul>
-            <?php foreach ($atrinkti_zodziai as $zodis): ?>
-                <li>
-                    <?php print $zodis; ?>
-                </li>
-            <?php endforeach; ?>    
+            <?php endforeach; ?>
         </ul>
     </body>
 </html>
