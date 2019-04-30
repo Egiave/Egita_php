@@ -23,8 +23,8 @@ $gerimai = [
    ],
 ];
 
-foreach ($gerimai as $index => $irasas) {
-    if ($irasas['nuolaida'] > 0) {
+foreach ($gerimai as $index => $gerimas) {
+    if ($gerimas['nuolaida'] > 0) {
         $gerimai[$index]['css_class'] = 'positive';
     } else {
         $gerimai[$index]['css_class'] = 'negative';
@@ -50,10 +50,10 @@ foreach ($gerimai as $index => $irasas) {
     </head>
     <body>
        <ul>
-            <?php foreach ($gerimai as $irasas): ?>
-                <li class="<?php print $irasas['css_class']; ?>">
-                    <span><?php print $irasas['name']; ?></span>
-                    <span><?php print $irasas['nuolaida']; ?></span>
+            <?php foreach ($gerimai as $gerimas): ?>
+                <li class="<?php print $gerimas['css_class']; ?>">
+                    <span><?php print $gerimas['name']; ?></span>
+                    <span><?php print $gerimas['kaina']; ?></span>
                 </li>
             <?php endforeach; ?>    
         </ul>
