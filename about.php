@@ -25,9 +25,9 @@ $gerimai = [
 
 foreach ($gerimai as $index => $gerimas) {
     if ($gerimas['nuolaida'] > 0) {
-        $gerimai[$index]['css_class'] = 'positive';
+        $gerimai[$index]['css_class'] = 'akcija';
     } else {
-        $gerimai[$index]['css_class'] = 'negative';
+        $gerimai[$index]['css_class'] = 'be_akcijos';
     }
 }
 
@@ -39,10 +39,10 @@ foreach ($gerimai as $index => $gerimas) {
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="style.css"> 
          <style type="text/css">
-            .positive {
+            .akcija {
                 font-size: 20px;
             }
-            .negative {
+            .be_akcijos {
                 font-size: 10px;
             }
         </style>
