@@ -1,39 +1,36 @@
 <?php
 
-$daiktai = [
-       'Kremas',
-       'Riešutai',
-       'Raktai',
-       'Lupdazis',   
+$zodziai = [
+    'Petras',
+    'laukė',
+    'ryte',
+    'prie',
+    'Maxima'
 ];
+$rasinys = [];
+$rasinio_ilgis = rand(100, 300);
 
-$size = rand(0, 10);
-$is_dark = rand(0, 1);
-$rand_name = rand(0, count($daiktai) -1);
-
-if ($is_dark == 1){
-    $color = 'tamsus';
-    
-} else {
-    $color = 'šviesus';
+for ($rasinio_zodis = 0; $rasinio_zodis < $rasinio_ilgis; $rasinio_zodis++) {
+    $random_index = rand(0, count($zodziai) - 1);
+    $random_zodis = $zodziai[$random_index];
+    $rasinys[] = $random_zodis;
 }
-
-$text = "$daiktai[$rand_name] užima $size cm3. Daiktas $color.";
-
-
 
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Klases darbas, antradienis</title>
+        <title>Klases darbas, pirmadienis</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css"> 
     </head>
     <body>
-        <p>
-            <?php print $text; ?>
-        </p>
-    </body>    
+        <ul>
+            <?php foreach ($rasinys as $zodis): ?>
+                <li>
+                    <?php print $zodis; ?>
+                </li>
+            <?php endforeach; ?>    
+        </ul>
+    </body>
 </html>
-
