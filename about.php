@@ -1,84 +1,63 @@
 <?php
 
-$dishes = [
-    'nut_salad' => [
-        'name' => 'Nut_Salad',
-        'price' => 3.44,
-        'ingredients' => [
-            'Nuts',
-            'Joghurt'
-        ]
+$daiktai = [
+    [
+        'name' => 'Kremas',
+        'size' => '5',
+        'color' => 'šviesus'
     ],
-    'bulldish' => [
-        'name' => 'Bulldish',
-        'price' => 4.77,
-        'ingredients' => [
-            'Rice',
-            'Soja Sauce'
-        ]
-    ]
+    [
+        'name' => 'Riešutai',
+        'size' => '10',
+        'color' => 'tamsus'
+    ],
+    [
+        'name' => 'Raktai',
+        'size' => '10',
+        'color' => 'tamsus'
+    ],
+    [
+        'name' => 'Lupdazis',
+        'size' => '10',
+        'color' => 'šviesus'
+    ],
 ];
 
-//print $dishes['nut_salad']['img'] . '<br>';
-//print $dishes['bulldish']['img'];
-//    ($index == 'bulldish');
+//random masyvas
+$random_name = $daiktai[rand(0, count($daiktai) - 1)];
+
+//randomina name su atsitiktiniu skaiciumi
+$name = $random_name['name'];
+
+//randomina size su atsitiktiniu skaiciumi (tuo paciu kaip $name)
+$size = $random_name['size'];
+
+//randomina tamsus/sviesus su atsitiktiniu skaiciumi (tuo paciu kaip $name)
+$color = $random_name['color'];
+
+//$random_name = $daiktai[rand(0, count($daiktai) - 1)];
+//$name = $random_name['name'];
+//$size = $random_name['size'];
+//$color = $random_name ['color'];
+//print 'name =>' . $name . '<br>';
+//print 'size =>' . $size . '<br>';
+//print 'color =>' . $color . '<br>';
+//isspausdinamas tekstas
+$text = "$name užima $size cm3. Daiktas $color";
+// <?php print $name; ?> užima <?php print $size; ?> cm3. Daiktas <?php print $color ?>
 
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Klases darbas, pirmadienis</title>
+        <title>Klases darbas, antradienis</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <style>
-            .image1 {
-                background-image: url("https://img.taste.com.au/EU9D0DbT/w720-h480-cfill-q80/taste/2016/11/ripper-thai-beef-noodle-salad-62642-1.jpeg");
-                background-size: cover;
-                height: 50vh;
-                width: 50vh;
-                border: 3px solid black;
-            }
-            .image2 {
-                background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR54uqemQdRQK76vYKxQkee7jDFrTo9850qO4l7zT4knphQ2SD5");
-                background-size: cover;
-                height: 50vh;
-                width: 50vh;
-                border: 3px solid black;
-            }
-        </style>
     </head>
     <body>
-        <ul>
-            <?php foreach ($dishes as $dishes_index => $dish): ?>
-
-                <?php if ($dishes_index == 'nut_salad'): ?>
-                    <?php $dish['css_class'] = 'image1'; ?>
-                <?php else: ?>
-                    <?php $dish['css_class'] = 'image2'; ?>
-                <?php endif ?>
-                <li class="<?php print $dish['css_class']; ?>">
-                    <?php print $dishes_index; ?>
-                    <ul>
-                        <?php foreach ($dish as $dish_index => $parameters): ?>
-                            <li>
-                                <?php print $dish_index; ?>
-                                <?php if (is_array($parameters)): ?>
-                                    <ul>
-                                        <?php foreach ($parameters as $ingri): ?>
-                                            <li>
-                                                <?php print $ingri; ?>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                <?php else: ?>
-                                    <?php print $parameters . '<br>'; ?>
-                                <?php endif; ?>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </body>
+        <p>
+            <?php print $text; ?>
+        </p>
+    </body>    
 </html>
 
