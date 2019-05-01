@@ -3,12 +3,14 @@
 $days = 365;
 $pakelio_kaina = 3.5;
 $surukyta = 0;
+$surukyta2 = 0;
 
 for ($day = 1; $day <= $days; $day++){
     $weekday = date('N', strtotime("+$day days"));
     if ($weekday <= 4) {
         $cizos_mon_thu = rand(3, 4);
         $surukyta += $cizos_mon_thu;
+        $surukyta2 += $cizos_mon_thu;
     } elseif ($weekday == 5) {
         $cizos_fri = rand(10, 20);
         $surukyta += $cizos_fri;
@@ -19,8 +21,10 @@ for ($day = 1; $day <= $days; $day++){
 } 
 
 $viso_kaina = round($surukyta / 20 * 3.5);
-$text = "Per metus surūkysiu $surukyta cigarečių už $viso_kaina eur."
-       
+$text = "Per metus surūkysiu $surukyta cigarečių už $viso_kaina eur.";
+$mon_thu_kaina = round($surukyta2 / 20 * 3.5);
+$text1 = "Nerūkydamas pirmadienį-ketvirtadienį sutaupyčiau $mon_thu_kaina eur."        
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,6 +34,6 @@ $text = "Per metus surūkysiu $surukyta cigarečių už $viso_kaina eur."
         <link rel="stylesheet" type="text/css" href="style.css">    
     </head>
     <body>
-        <?php print $text; ?>
+        <?php print $text .' '. $text1; ?>
     </body>
 </html>
