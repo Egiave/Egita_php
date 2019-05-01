@@ -9,9 +9,9 @@ for ($m = 1; $m <= $months; $m++) {
     $islaidos = rand(500, 1200);
     $balansas = $kisene + $alga - $islaidos;
 //    print "$islaidos<br>";
-    print "menuo $m<br>kisene $kisene eur<br>islaidos $islaidos<br>balansas $balansas<br><br>";
-    if ($balansas <= 0) {
-        print "Bloga prognozė: $m mėnesį gali baigtis pinigai! Atsargiai!. Likutis $kisene. <br>";
+    print "menuo $m<br>kisene $kisene eur<br> alga $alga eur, <br> islaidos $islaidos<br>balansas $balansas<br><br>";
+    if ($balansas <= 500) {
+        print "Bloga prognozė: $m mėnesį gali baigtis pinigai! Atsargiai! Likutis $balansas. <br>";
         break;
     } else {
         $kisene = $balansas;   
