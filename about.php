@@ -3,90 +3,41 @@
 /**
  * @return array 3x3 random array
  */
-function slot_run() {
-
-    $empty_arr = [
-        [],
-        [],
-        []
-    ];
-
-    $empty_text = "<table>";
-
-    foreach ($empty_arr as $inside_arr) {
-
-        $rand_value = rand(0, 10);
-        $inside_arr[] = $rand_value;
-
-
-        if ($rand_value % 2 == 0) {
-
-            $empty_text .= "<tr> "
-                    . "<td class=yellow>$rand_value </td>";
-        } else {
-
-            $empty_text .= "<tr> "
-                    . "<td class=blue>$rand_value </td>";
-        }
-
-        $rand_value = rand(0, 10);
-        $inside_arr[] = $rand_value;
-
-        if ($rand_value % 2 == 0) {
-
-            $empty_text .= "<td class=yellow> $rand_value </td>";
-        } else {
-
-            $empty_text .= "<td class=blue> $rand_value </td>";
-        }
-
-
-        $rand_value = rand(0, 10);
-        $inside_arr[] = $rand_value;
-
-
-        if ($rand_value % 2 == 0) {
-
-            $empty_text .= "<td class=yellow> $rand_value </td>";
-        } else {
-
-            $empty_text .= "<td class=blue> $rand_value </td>";
-        }
-
-
-        var_dump($inside_arr);
+function tekstas($text) {
+    if(mb_strlen($text) <= 100) {
+       return $text;
     }
-
-    print $empty_text;
+    return mb_strcut($text, 0, 97) . '...';
 }
+
+$text = 'Because of the flexible itinerary it was possible to adapt the sights to the number of expected traffic for festivities in Kaunas. Starting with sad history of the Nazi regime killing about 100000 people from Vilnius and just burying the remains in the Paneriai Forest. With the good weather we continued to Kaunas to see many of its churches, the little fortress walking around most of the time. When we finally got to Trakai Castle I learnt about the way of defending the different parts of the castle, how the islands were connected by bridges and what else to do in Trakai. I highly recommend this tour.';
+print tekstas($text) . '<br>';
+
+function mh($text) {
+   $text = str_replace('sudas', '***', $text);        
+    $text = str_replace('pyp', '***', $text);  
+    print $text . '<br>';
+} 
+
+mh('sudas tas gaidys pyp mane');
+
+
+function replaced($text) {
+   return str_replace('sudas', '***', $text);           
+} 
+ 
+$text = 'sudas tas gaidys sudas mane';
+print replaced($text);
 
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>3 X 3</title>
+        <title>Klasės darbas, 05.02</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <style>
-            table {
-                border-collapse: collapse;
-            }
-
-            td {
-                padding: 10px;
-            }
-
-            .blue {
-                background: blue;
-            }
-
-            .yellow {
-                background: yellow;
-            }
-        </style>
     </head>
     <body>
-        <?php slot_run(); ?>
     </body>
 </html>
 
