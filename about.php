@@ -56,9 +56,9 @@ $array = slot_run($size);
         </style>        
     </head>
     <body>
-        <?php foreach ($array as $index): ?>
+        <?php foreach ($array as $index => $value): ?>
             <section>
-                <?php foreach ($index as $random): ?>
+                <?php foreach ($value as $index => $random): ?>
                     <?php if ($random): ?>
                         <div class="yellow"></div>
                     <?php else: ?>
