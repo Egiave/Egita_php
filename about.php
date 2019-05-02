@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @return array 3x3 random array
+ * generuoja dinamine matrica
+ * @return array matrica
  */
-
-function slot_run() {
+function slot_run($size) {
     $array = [];
 
-    for ($x = 1; $x <= 5; $x++) {
+    for ($x = 1; $x <= $size; $x++) {
         $row = [];
 
-        for ($z = 1; $z <= 5; $z++) {
+        for ($z = 1; $z <= $size; $z++) {
             $row[] = rand(0, 1);
         }
 
@@ -20,7 +20,7 @@ function slot_run() {
     return $array;
 }
 
-var_dump(slot_run());
+var_dump(slot_run(10));
 
 ?>
 <!DOCTYPE html>
