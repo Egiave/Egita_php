@@ -1,22 +1,20 @@
 <?php
 
-$grikiai_start = 5000;
-$grikiai = $grikiai_start;
-$survive_days = 0;
-$result = "";
+/**
+ * 
+ * @return array generuoja 3x3 random array
+ */
 
-for($day = 1; $day < 100; $day++){
-      $per_diena = rand(200, 500);
-      if ($grikiai >= 500){
-          $grikiai -= $per_diena;
-          $survive_days++;
-          $result .= "Grikiu yra $grikiai per $survive_days dienas." . '<br>';
-      }else{
-          $result .= "Paskutine diena $survive_days" . "grikiu liko $grikiai " . '<br>';
-          break;
-      }
- }
-
+function slot_run (){
+    $array = [
+        [rand(0,1), rand(0,1), rand(0,1)],
+        [rand(0,1), rand(0,1), rand(0,1)],
+        [rand(0,1), rand(0,1), rand(0,1)],
+    ];
+    return $array;
+}
+var_dump (slot_run());
+    
 ?> 
 <!DOCTYPE html>
 <html>
@@ -26,6 +24,5 @@ for($day = 1; $day < 100; $day++){
         <link rel="stylesheet" type="text/css" href="style.css">    
     </head>
     <body>
-        <?php print $result; ?>
     </body>
 </html>
