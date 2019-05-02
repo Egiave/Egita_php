@@ -4,61 +4,95 @@
  * @return array 3x3 random array
  */
 function slot_run() {
-    $array = [
-        [rand(0, 1), rand(0, 1), rand(0, 1)],
-        [rand(0, 1), rand(0, 1), rand(0, 1)],
-        [rand(0, 1), rand(0, 1), rand(0, 1)]
-    ];
-    return $array;
-}
 
-$array1 = slot_run();
+    $empty_arr = [
+        [],
+        [],
+        []
+    ];
+
+    $empty_text = "<table>";
+
+    foreach ($empty_arr as $inside_arr) {
+
+        $rand_value = rand(0, 10);
+        $inside_arr[] = $rand_value;
+
+
+        if ($rand_value % 2 == 0) {
+
+            $empty_text .= "<tr> "
+                    . "<td class=yellow>$rand_value </td>";
+        } else {
+
+            $empty_text .= "<tr> "
+                    . "<td class=blue>$rand_value </td>";
+        }
+
+        $rand_value = rand(0, 10);
+        $inside_arr[] = $rand_value;
+
+        if ($rand_value % 2 == 0) {
+
+            $empty_text .= "<td class=yellow> $rand_value </td>";
+        } else {
+
+            $empty_text .= "<td class=blue> $rand_value </td>";
+        }
+
+
+        $rand_value = rand(0, 10);
+        $inside_arr[] = $rand_value;
+
+
+        if ($rand_value % 2 == 0) {
+
+            $empty_text .= "<td class=yellow> $rand_value </td>";
+        } else {
+
+            $empty_text .= "<td class=blue> $rand_value </td>";
+        }
+
+
+        var_dump($inside_arr);
+    }
+
+    print $empty_text;
+}
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <link rel="stylesheet" href="style.css">
+        <title>3 X 3</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <style>
-            section div {
-                border: 3px solid black;
-                padding: 20px;
-                margin: 20px;
-                height: 5vh;
-                width: 5vh;
+            table {
+                border-collapse: collapse;
             }
 
-            section {
-                display: flex;
-                justify-content: center;
-                align-items: baseline;
+            td {
+                padding: 10px;
             }
-            
+
             .blue {
-                background-color: blue;
+                background: blue;
             }
-            
-            .orange {
-                background-color: orange;
+
+            .yellow {
+                background: yellow;
             }
         </style>
     </head>
     <body>
-        <?php foreach ($array1 as $index): ?>
-            <section>
-                <?php foreach ($index as $value): ?>
-                    <?php if ($value > 0): ?>
-                        <div class="blue"></div>
-                    <?php else: ?>
-                        <div class="orange"></div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </section>
-        <?php endforeach; ?>
+        <?php slot_run(); ?>
     </body>
 </html>
+
+
+
+
 
 
 
